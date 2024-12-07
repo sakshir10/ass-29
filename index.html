@@ -25,32 +25,33 @@
 <body>
     <div class="card">
         <img src="burger.png" alt="" height="70px" class="card-img">
-        <h1 class="card-heading">Veg cheese Burger</h1>
+        <h1 class="card-heading">Paneer Onion Pizza</h1>
 
         <div class="quantity-btn-container">
-            <button type="button" onclick="decrement()">
+            <button type="button" onclick="ChangeQuantity('dec')">
                 -
             </button>
             <span id="quantity">1</span>
-            <button type="button" onclick="increment()">
+            <button type="button" onclick="ChangeQuantity('inc')">
                 +
             </button>
         </div>
     </div>
 
     <script>
-        function increment() {
-            const quantityElement = document.getElementById("quantity");
-            const quantity = parseInt(quantityElement.innerText);
-            quantityElement.innerText = quantity + 1;
-        }
+         const quantityElement = document.getElementById("quantity");
+        let quantity = parseInt(quantityElement.innerText);
 
-        function decrement() {
-            const quantityElement = document.getElementById("quantity");
-            const quantity = parseInt(quantityElement.innerText);
-            quantityElement.innerText = quantity - 1;
-        }
+        function ChangeQuantity(op) {
 
+            if (quantity == 1 && op == "dec")
+                return
+
+            if (quantity == 5 && op == "inc")
+                return
+
+                quantityElement.innerText = op ==='inc' ? ++ quantity : --quantity;
+        }
     </script>
 </body>
 </html>
